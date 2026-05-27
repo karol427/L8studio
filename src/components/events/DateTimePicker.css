@@ -1,0 +1,172 @@
+.dtp-wrapper { position: relative; }
+
+.dtp-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  padding: 0 10px;
+  height: 36px;
+  transition: border-color 0.2s;
+}
+.dtp-input-row:focus-within { border-color: var(--green-border); }
+
+.dtp-cal-btn, .dtp-clear-btn {
+  background: none;
+  color: var(--text-muted);
+  display: flex; align-items: center;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.dtp-cal-btn:hover, .dtp-clear-btn:hover { color: var(--green-primary); }
+
+.dtp-input {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 12.5px !important;
+  font-family: var(--font-mono) !important;
+  color: var(--text-primary) !important;
+  cursor: pointer;
+  flex: 1;
+}
+.dtp-input:focus { box-shadow: none !important; }
+
+.dtp-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 200;
+  background: #111;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  display: flex;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8), 0 0 20px var(--green-glow);
+  overflow: hidden;
+}
+
+/* Left calendar */
+.dtp-left { padding: 14px; min-width: 220px; }
+
+.dtp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.dtp-nav span {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+.dtp-nav button {
+  background: none;
+  color: var(--text-secondary);
+  font-size: 18px;
+  padding: 0 6px;
+  line-height: 1;
+}
+.dtp-nav button:hover { color: var(--green-primary); }
+
+.dtp-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.dtp-day-name {
+  text-align: center;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  padding: 4px 0;
+}
+.dtp-day {
+  text-align: center;
+  font-size: 12px;
+  padding: 5px 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.1s;
+}
+.dtp-day--empty { cursor: default; }
+.dtp-day:not(.dtp-day--empty):hover { background: var(--bg-hover); color: var(--text-primary); }
+.dtp-day--today { color: var(--green-primary); font-weight: 600; }
+.dtp-day--from, .dtp-day--to {
+  background: var(--green-primary) !important;
+  color: #000 !important;
+  font-weight: 700;
+}
+.dtp-day--range { background: var(--green-glow); color: var(--green-primary); }
+
+/* Right time */
+.dtp-right {
+  padding: 14px;
+  border-left: 1px solid var(--border-default);
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dtp-time-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dtp-time-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius);
+  padding: 5px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green-primary);
+}
+
+.dtp-time-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.dtp-time-row select {
+  width: auto;
+  padding: 4px 6px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+.dtp-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+.dtp-ok {
+  background: var(--green-primary);
+  color: #000;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: var(--font-display);
+}
+.dtp-ok:hover { background: var(--green-dim); }
+.dtp-cancel {
+  background: none;
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-default);
+  font-size: 13px;
+}
+.dtp-cancel:hover { border-color: var(--red); color: var(--red); }

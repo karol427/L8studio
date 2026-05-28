@@ -1,0 +1,169 @@
+.event-form { display: flex; flex-direction: column; gap: 16px; }
+
+.ef-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.ef-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Fields */
+.ef-left, .ef-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ef-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,255,65,0.04);
+}
+.ef-field:last-child { border-bottom: none; }
+
+.ef-field label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.ef-required { color: var(--red); }
+
+.ef-field input,
+.ef-field select,
+.ef-field textarea {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+.ef-field input:focus,
+.ef-field select:focus,
+.ef-field textarea:focus {
+  border-color: var(--green-border);
+  box-shadow: 0 0 0 2px var(--green-glow);
+  outline: none;
+}
+.ef-field textarea { resize: vertical; min-height: 80px; font-family: var(--font-body); }
+
+.ef-select-with-clear,
+.ef-select-with-add {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.ef-select-with-clear select,
+.ef-select-with-add select { flex: 1; }
+
+.ef-clear-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+  display: flex; align-items: center;
+  flex-shrink: 0;
+}
+.ef-clear-btn:hover { border-color: var(--red); color: var(--red); }
+
+.ef-add-btn {
+  background: var(--green-primary);
+  color: #000;
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  display: flex; align-items: center;
+  flex-shrink: 0;
+}
+.ef-add-btn:hover { background: var(--green-dim); }
+
+/* Editor toolbar */
+.ef-editor-toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  flex-wrap: wrap;
+}
+.ef-editor-select {
+  width: auto;
+  height: 26px;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.ef-editor-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+.ef-editor-btn:hover { border-color: var(--border-default); color: var(--text-primary); }
+
+.ef-field .ef-editor-toolbar + textarea {
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* Right column */
+.ef-schedule-header {
+  padding: 10px 0 8px;
+  border-bottom: 2px solid var(--green-primary);
+  margin-bottom: 8px;
+}
+.ef-schedule-header span {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green-primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ef-schedule-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,255,65,0.04);
+}
+.ef-schedule-row:last-child { border-bottom: none; }
+
+.ef-schedule-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.ef-divider {
+  height: 1px;
+  background: var(--border-default);
+  margin: 6px 0;
+}
+
+.ef-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+@media (max-width: 1100px) {
+  .ef-layout { grid-template-columns: 1fr; }
+}
